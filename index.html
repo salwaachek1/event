@@ -124,3 +124,66 @@
     </div>
   </body>
 </html>
+<script>
+  $("#filters").submit(function (e) {
+    e.preventDefault();
+    getData();
+  });
+
+  function getData() {
+    $("#modal").fadeOut("slow");
+    var employee = document.getElementById("employee").value;
+    var event = document.getElementById("event").value;
+    var date = document.getElementById("date").value;
+    console.log(date);
+    $.ajax({
+      method: "POST",
+      url: document.location.href + "/fetch.php",
+      data: {
+        employee: employee,
+        event: event,
+        date: date,
+      },
+      success: function (response) {
+        console.log(response);
+        var length = response.length;
+        var string =
+          '<table class="table table-striped table-dark" style="border:2px solid #D2191A;"><thead class="thead-dark"><tr><th scope="col">Event</th><th scope="col">Date</th><th scope="col">Employee</th><th scope="col">Email</th><th scope="col">Fee</th></tr></thead><tbody>';
+        var total = 0;
+        if (length == 0) {
+          string +=
+            '<tr><td colspan="5" class="td-result" >No Records found !</td></tr></tbody></table>';
+          $("#records").html(string);
+        } else {
+          for (var i = 0; i < length; i++) {
+            total += parseInt(response[i].participation_fee);
+            string +=
+              "<tr>" +
+              "<td>" +
+              response[i].event_name +
+              "</td>" +
+              "<td>" +
+              response[i].event_date +
+              "</td>" +
+              "<td>" +
+              response[i].employee_name +
+              "</td>" +
+              "<td>" +
+              response[i].employee_email +
+              "</td>" +
+              "<td>" +
+              response[i].participation_fee +
+              "</td>" +
+              "</tr>";
+          }
+          string +=
+            '<tr><td colspan="5" class="td-result">Total : ' +
+            total +
+            "</td></tr></tbody></table>";
+          $("#records").html(string);
+        }
+      },
+      dataType: "json",
+    });
+  }
+</script>
