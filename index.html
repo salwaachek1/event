@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Booking Event System</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./assets/style.css" />
+    <script src="./assets/features.js"></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="row justify-content-center">
+        <div class="alert col-md-8" id="msg" role="alert"></div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-md-8" id="filter-col">
+          <form method="POST" id="filters" style="display: inline !important">
+            <input
+              type="text"
+              name="employee"
+              id="employee"
+              placeholder="Employee name .."
+              class="no-border"
+            />
+            <input
+              type="text"
+              placeholder="Event name .."
+              name="event"
+              id="event"
+              class="no-border"
+            />
+
+            <input
+              type="date"
+              id="date"
+              value="<?php echo date('Y-m-d');?>"
+              class="no-border"
+              name="date"
+            />
+            <button
+              type="submit"
+              name="submit_form"
+              value="Submit"
+              class="btn btn-red"
+            >
+              Search
+            </button>
+          </form>
+        </div>
+        <div id="records"></div>
+      </div>
+
+      <div class="row">
+        <form
+          method="POST"
+          onsubmit="return sendData();"
+          enctype="multipart/form-data"
+        >
+          <div class="modal" tabindex="-1" id="modal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title">
+                    <img src="assets/rexx_logo.png" height="30px;" />Add Json
+                    File
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <div>
+                    <label for="importfile" class="form-label"
+                      >Upload a json file
+                    </label>
+                    <input
+                      class="form-control form-control-lg"
+                      required
+                      type="file"
+                      id="importfile"
+                      name="file"
+                      placeholder="papap"
+                      accept="application/json"
+                    />
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close
+                  </button>
+                  <button
+                    type="submit"
+                    name="submit_form"
+                    value="Submit"
+                    class="btn btn-red"
+                  >
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

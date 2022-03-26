@@ -1,0 +1,22 @@
+.no-border {
+  border: none;
+  border-bottom: 2px solid #d2191a;
+  margin-right: 10px;
+}
+#records {
+  margin-top: 20px;
+}
+#msg {
+  visibility: hidden;
+  margin-top: 20px;
+  background-color: #d2191a;
+  color: white;
+}
+#filter-col {
+  visibility: hidden;
+  margin-top: 20px;
+}
+.btn-red {
+  background-color: #d2191a;
+  color: white;
+}
