@@ -14,7 +14,7 @@ function modal() {
   $("#modal").fadeIn("slow");
   $("#msg").fadeIn("slow");
 }
-
+/* AJAX Request to send json file  */
 function sendData() {
   var file_data = $("#importfile").prop("files")[0];
   var form_data = new FormData();
