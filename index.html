@@ -26,6 +26,7 @@
       </div>
       <div class="row justify-content-center">
         <div class="col-md-8" id="filter-col">
+          <!-- filter form -->
           <form method="POST" id="filters" style="display: inline !important">
             <input
               type="text"
@@ -58,16 +59,21 @@
               Search
             </button>
           </form>
+          <!-- end filter form -->
         </div>
+        <!-- filtered data display table -->
         <div id="records"></div>
+        <!-- end filtered data display table -->
       </div>
 
       <div class="row">
+        <!-- json file uploading form -->
         <form
           method="POST"
           onsubmit="return sendData();"
           enctype="multipart/form-data"
         >
+          <!-- Modal -->
           <div class="modal" tabindex="-1" id="modal">
             <div class="modal-dialog">
               <div class="modal-content">
@@ -119,7 +125,9 @@
               </div>
             </div>
           </div>
+          <!-- end Modal -->
         </form>
+        <!-- end json file uploading form -->
       </div>
     </div>
   </body>
@@ -129,7 +137,7 @@
     e.preventDefault();
     getData();
   });
-  /* AJAX Request to get requested Data */
+  /* AJAX Request for filter */
   function getData() {
     $("#modal").fadeOut("slow");
     var employee = document.getElementById("employee").value;

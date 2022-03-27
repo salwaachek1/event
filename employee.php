@@ -4,7 +4,7 @@ public $name;
 public $email;	
 function Insert($data){
 	    $connection = database::OpenConnection(); // connection to database
-	    $sql = "SELECT id from employee where name =:name"; // check if there's an employee with the same name in database
+	    $sql = "SELECT id FROM employee WHERE name =:name"; // check if there's an employee with the same name in database
 		$stmt = $connection->prepare($sql);
 		$stmt->bindParam(":name",$data["employee_name"]);
 		$stmt->execute();

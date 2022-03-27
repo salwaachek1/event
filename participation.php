@@ -5,7 +5,7 @@ public $employee;
 public $event;
 function Insert($data,$employee_id,$event_id){
 	    $connection = database::OpenConnection(); // connection to database
-	    $sql = "SELECT id from participation where id =:id"; // check if there's a participation  with the same ID in database
+	    $sql = "SELECT id FROM participation WHERE id =:id"; // check if there's a participation  with the same ID in database
 		$stmt = $connection->prepare($sql);
 		$stmt->bindParam(":id",$data["participation_id"]);
 		$stmt->execute();

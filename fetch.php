@@ -23,14 +23,10 @@ else{
 	}
 }
 		
-$sql='SELECT
- employee.name as ep_n, event.name as ev_n , employee.email as ep_em, event.date as ev_d, participation.fee as part_f
+$sql='SELECT employee.name AS ep_n, event.name AS ev_n , employee.email AS ep_em, event.date As ev_d, participation.fee As part_f
 FROM participation 
-LEFT JOIN employee 
-  ON participation.employee_id = employee.id
-LEFT JOIN event
-  ON event.id = participation.event_id WHERE '.$query_string;  
-	
+LEFT JOIN employee ON participation.employee_id = employee.id
+LEFT JOIN event ON event.id = participation.event_id WHERE '.$query_string;  	
 
 $stmt = $connection->prepare($sql);	
 if((!empty($_POST['employee'])&&!empty($_POST['date']))&&!empty($_POST['event'])){

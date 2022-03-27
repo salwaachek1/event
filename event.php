@@ -4,7 +4,7 @@ public $name;
 public $launching_date;	
 function Insert($data){
 	    $connection = database::OpenConnection(); // connection to database
-	    $sql = "SELECT id from event where id =:id"; // check if there's an event with the same ID in database
+	    $sql = "SELECT id FROM event WHERE id =:id"; // check if there's an event with the same ID in database
 		$stmt = $connection->prepare($sql);
 		$stmt->bindParam(":id",$data["event_id"]);
 		$stmt->execute();
